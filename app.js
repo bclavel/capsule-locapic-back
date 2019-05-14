@@ -23,9 +23,9 @@ app.use((req, res, next) => {
 });
 
 passport.use(new FacebookStrategy({
-    clientID: "429204397875507",
-    clientSecret: "d4645f0a2dfa0f0dc1fd8041e2c38470",
-    callbackURL: 'https://passport-capsule-test.herokuapp.com/auth/facebook/callback',
+    clientID: "2466813596883904",
+    clientSecret: "6a7895df1dbc2961d09725b1fbe98c0a",
+    callbackURL: 'https://locapic-capsule-bc.herokuapp.com/auth/facebook/callback',
 
     profileFields: ['id', 'first_name', 'last_name', 'email'],
 
