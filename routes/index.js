@@ -21,18 +21,24 @@ router.get('/auth/facebook/callback',
 
   function(req, res) {
 
-    var newUser = new userModel({
-      firstName : req.user.first_name,
-      lastName : req.user.last_name,
-      email : req.user.email,
-      facebookId : req.user.id
-    })
-
-    newUser.save(
-      function (error, user) {
-        console.log('INDEX BACK - New user save', user);
+    userModel.findOne({facebookId : req.user.id})
+    .exec(function(err, user) {
+      if (user) {
+        var newUser = new userModel({
+          firstName : req.user.first_name,
+          lastName : req.user.last_name,
+          email : req.user.email,
+          facebookId : req.user.id
+        })
+        newUser.save(
+          function (error, user) {
+            console.log('INDEX BACK - New user save', user);
+          }
+        )
+      } else {
+        console.log('user existe déjà, pas de création');
       }
-    )
+    })
 
     res.redirect(req.user.redirectUrl
       +"?userId="+req.user.id
