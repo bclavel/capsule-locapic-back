@@ -59,6 +59,7 @@ router.post('/logPosition',
       user.save(
         function(error, user) {
           console.log('INDEX BACK - Save user', user);
+          res.json({ user });
         }
       )
     })
