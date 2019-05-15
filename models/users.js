@@ -1,11 +1,16 @@
 var mongoose = require('mongoose');
 
-// Création du schéma de données city
+var PositionSchema = mongoose.Schema({
+  latitude: Number,
+  longitude: Number
+})
+
 var userSchema = mongoose.Schema({
   firstName: String,
   lastName : String,
   email : String,
-  userId : String,
+  facebookid : String,
+  historiquePosition : [PositionSchema]
 });
 
 // Export pour utilisation dans les routes (collection + schéma)
