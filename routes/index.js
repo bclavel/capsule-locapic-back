@@ -23,7 +23,7 @@ router.get('/auth/facebook/callback',
 
     userModel.findOne({facebookId : req.user.id})
     .exec(function(err, user) {
-      if (user) {
+      if (!user) {
         var newUser = new userModel({
           firstName : req.user.first_name,
           lastName : req.user.last_name,
