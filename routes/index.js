@@ -45,7 +45,7 @@ router.get('/auth/facebook/callback',
 
 router.post('/logPosition',
   function(req,res,next) {
-    userModel.findOne({facebookid : req.body.facebookId})
+    userModel.findOne({facebookId : req.body.facebookId})
     .exec(function (err, user) {
       console.log('INDEX BACK - FindOne user', user);
       user.historiquePosition.push(req.body.currentPosition)
