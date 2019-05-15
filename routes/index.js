@@ -49,7 +49,12 @@ router.post('/logPosition',
     .exec(function (err, user) {
       console.log('INDEX BACK - Req.body', req.body);
       console.log('INDEX BACK - FindOne user', user);
-      user.historiquePosition.push(req.body.currentPosition)
+      user.historiquePosition.push(
+        {
+          latitude: req.body.userLat,
+          longitude: req.body.userLon,
+        }
+      )
 
       user.save(
         function(error, user) {
