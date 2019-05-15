@@ -9,7 +9,7 @@ var userSchema = mongoose.Schema({
   firstName: String,
   lastName : String,
   email : String,
-  facebookid : String,
+  facebookId : String,
   historiquePosition : [PositionSchema]
 });
 

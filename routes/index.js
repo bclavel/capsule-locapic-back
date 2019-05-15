@@ -31,7 +31,6 @@ router.get('/auth/facebook/callback',
     newUser.save(
       function (error, user) {
         console.log(user);
-        res.json({ user });
       }
     )
 
@@ -48,7 +47,7 @@ router.post('/logPosition',
   function(req,res,next) {
     userModel.findOne({facebookid : req.body.facebookId})
     .exec(function (err, data) {
-      console.log(data);
+      console.log('INDEX BACK - FindOne Data', data);
     })
   }
 )
