@@ -27,7 +27,7 @@ passport.use(new FacebookStrategy({
     clientSecret: "6a7895df1dbc2961d09725b1fbe98c0a",
     callbackURL: 'https://locapic-capsule-bc.herokuapp.com/auth/facebook/callback',
 
-    profileFields: ['id', 'first_name', 'last_name', 'email'],
+    profileFields: ['id', 'first_name', 'last_name', 'email', 'picture'],
 
     passReqToCallback: true
 

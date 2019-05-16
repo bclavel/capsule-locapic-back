@@ -44,6 +44,7 @@ router.get('/auth/facebook/callback',
       +"?userId="+req.user.id
       +"&firstName="+req.user.first_name
       +"&lastName="+req.user.last_name
+      +"&picture="+encodeURIComponent(req.user.picture.data.url)
       +"&email="+req.user.email);
   }
 );
