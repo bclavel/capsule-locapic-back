@@ -21,6 +21,16 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('sendMessage', function(messageFromFront) {
+    console.log(messageFromFront);
+    io.emit('sendMessageFromBack', messageFromFront);
+  });
+});
+
 /**
  * Listen on provided port, on all network interfaces.
  */
